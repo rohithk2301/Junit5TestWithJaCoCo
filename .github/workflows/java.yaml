@@ -21,7 +21,6 @@ jobs:
 
     - name: Build and Test
       run: |
-        cd Junit5TestWithJaCoCo  # Change the working directory
         mvn clean package
       working-directory: ${{ github.workspace }}  # Set working directory to the root of the repository
 
@@ -29,4 +28,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: jacoco-reports
-        path: Junit5TestWithJaCoCo/target/site/jacoco/
+        path: target/site/jacoco/
