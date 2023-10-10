@@ -22,7 +22,7 @@ jobs:
     - name: Build and Test
       run: |
         mvn clean package
-      working-directory: Junit5TestWithJaCoCo/src/main/java/com/junit5/examples/Calculator.java
+      working-directory: Junit5TestWithJaCoCo  # Adjust to your project directory
 
     - name: Upload JaCoCo Reports
       uses: actions/upload-artifact@v2
