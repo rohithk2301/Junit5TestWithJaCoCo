@@ -1,0 +1,31 @@
+name: Java CI
+
+on:
+  push:
+    branches:
+      - main  # Replace with your main branch name if different
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Java
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'
+        distribution: 'adopt'
+
+    - name: Build and Test
+      run: |
+        mvn clean package
+      working-directory: Junit5TestWithJaCoCo/src/main/java/com/junit5/examples
+
+    - name: Upload JaCoCo Reports
+      uses: actions/upload-artifact@v2
+      with:
+        name: jacoco-reports
+        path: Junit5TestWithJaCoCo/target/site/jacoco/
