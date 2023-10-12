@@ -27,18 +27,4 @@ jobs:
     - name: Check Code Coverage
       run: mvn jacoco:report
 
-    - name: Convert Code Coverage to JSON
-      run: |
-        mvn jacoco:report -DreportFile=target/site/jacoco/jacoco.xml
-        mvn jacoco:report -DdataFile=target/site/jacoco/jacoco.exec
-        mvn jacoco:report -DclassDumpFile=target/site/jacoco/classpath-dump.txt
-        mvn jacoco:report -DhtmlFile=target/site/jacoco
-        mvn jacoco:report -DxmlFile=target/site/jacoco/jacoco.xml
-      env:
-        COVERAGE_FILE: target/site/jacoco/jacoco.json
-
-    - name: Upload Code Coverage
-      uses: actions/upload-artifact@v2
-      with:
-        name: code-coverage
-        path: ${{ env.COVERAGE_FILE }}
+   
