@@ -37,4 +37,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: code-coverage
-        path: ${{ env.COVERAGE_FILE }}
+        path: target/site/jacoco  # Adjust the path to the directory containing the JSON file
